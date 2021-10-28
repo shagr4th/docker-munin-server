@@ -50,7 +50,7 @@ fi
 echo "account default" >> $MSMTP_CONFIG
 echo "host ${SMTP_HOST}" >> $MSMTP_CONFIG
 echo "from ${ALERT_SENDER}" >> $MSMTP_CONFIG
-if [ -n "${SMTP_USE_TLS}" ]; then
+if [ "${SMTP_USE_TLS}" != false ] || [ -n "${SMTP_USE_TLS}" ]; then
 	echo "tls on" >> $MSMTP_CONFIG
 fi
 if [ -n "${SMTP_PORT}" ]; then
